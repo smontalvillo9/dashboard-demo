@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Demo — IA en Supply Chain · RetailCo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="topbar">
+        <div class="logo">
+            <span class="logo-icon">◆</span>
+            <span>RetailCo <small>· Dashboard IA</small></span>
+        </div>
+        <div class="demo-badge">DEMO · DATOS SIMULADOS</div>
+        <div class="nav-tabs">
+            <button class="tab active" onclick="showTab('rutas')">🚚 Rutas</button>
+            <button class="tab" onclick="showTab('demand')">📊 Demand Sensing</button>
+            <button class="tab" onclick="showTab('kpis')">🎯 KPIs</button>
+        </div>
+    </nav>
+
+    <!-- TAB 1: RUTAS -->
+    <div id="tab-rutas" class="tab-content active">
+        <div class="section-header">
+            <h2>Optimización de Rutas en Tiempo Real</h2>
+            <p>IA recalcula rutas cada 15 minutos según tráfico, demanda y prioridades</p>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <span class="card-label">ANTES — Rutas fijas</span>
+                    <span class="tag tag-red">Manual</span>
+                </div>
+                <div class="metric-row">
+                    <div class="metric"><span class="metric-value red">342</span><span class="metric-label">km/día promedio</span></div>
+                    <div class="metric"><span class="metric-value red">4.2h</span><span class="metric-label">tiempo medio ruta</span></div>
+                    <div class="metric"><span class="metric-value red">23%</span><span class="metric-label">entregas fuera plazo</span></div>
+                </div>
+                <div class="route-visual before">
+                    <div class="route-line zig"></div>
+                    <div class="route-stops">
+                        <span class="stop">🏭</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">🏠</span>
+                    </div>
+                    <p class="route-note">7 paradas · Orden fijo · Sin adaptación</p>
+                </div>
+            </div>
+            <div class="card highlight-card">
+                <div class="card-header">
+                    <span class="card-label">DESPUÉS — IA optimiza</span>
+                    <span class="tag tag-green">Automático</span>
+                </div>
+                <div class="metric-row">
+                    <div class="metric"><span class="metric-value green">291</span><span class="metric-label">km/día promedio</span></div>
+                    <div class="metric"><span class="metric-value green">3.1h</span><span class="metric-label">tiempo medio ruta</span></div>
+                    <div class="metric"><span class="metric-value green">7%</span><span class="metric-label">entregas fuera plazo</span></div>
+                </div>
+                <div class="route-visual after">
+                    <div class="route-line smooth"></div>
+                    <div class="route-stops">
+                        <span class="stop">🏭</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">📦</span><span class="stop">🏠</span>
+                    </div>
+                    <p class="route-note">7 paradas · Orden dinámico · Recalcula cada 15min</p>
+                </div>
+            </div>
+        </div>
+        <div class="savings-bar">
+            <div class="saving"><span class="saving-value">-15%</span><span class="saving-label">kilómetros</span></div>
+            <div class="saving"><span class="saving-value">-26%</span><span class="saving-label">tiempo</span></div>
+            <div class="saving"><span class="saving-value">-69%</span><span class="saving-label">retrasos</span></div>
+            <div class="saving"><span class="saving-value">€47K</span><span class="saving-label">ahorro/año</span></div>
+        </div>
+    </div>
+
+    <!-- TAB 2: DEMAND SENSING -->
+    <div id="tab-demand" class="tab-content">
+        <div class="section-header">
+            <h2>Demand Sensing vs Forecast Tradicional</h2>
+            <p>ML analiza 15 variables en tiempo real para predecir demanda con mayor precisión</p>
+        </div>
+        <div class="chart-container">
+            <div class="chart-legend">
+                <span class="legend-item"><span class="dot" style="background:#dc4b4b"></span> Demanda real</span>
+                <span class="legend-item"><span class="dot" style="background:#888"></span> Forecast tradicional</span>
+                <span class="legend-item"><span class="dot" style="background:#6e916e"></span> Demand sensing (IA)</span>
+            </div>
+            <div class="chart-bars" id="demand-chart">
+                <!-- Generated by JS -->
+            </div>
+            <div class="chart-labels">
+                <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dic</span>
+            </div>
+        </div>
+        <div class="grid-3">
+            <div class="stat-card">
+                <div class="stat-value green">-42%</div>
+                <div class="stat-label">Error de predicción</div>
+                <div class="stat-detail">De ±18% a ±10.5%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value green">-20%</div>
+                <div class="stat-label">Stock muerto</div>
+                <div class="stat-detail">€120K liberados en inventario</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value green">+8%</div>
+                <div class="stat-label">Disponibilidad</div>
+                <div class="stat-detail">De 91% a 98.3% fill rate</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 3: KPIs -->
+    <div id="tab-kpis" class="tab-content">
+        <div class="section-header">
+            <h2>KPIs Automáticos — Panel Ejecutivo</h2>
+            <p>Actualización en tiempo real · Sin intervención manual · Alertas inteligentes</p>
+        </div>
+        <div class="grid-4">
+            <div class="kpi-card">
+                <div class="kpi-label">OTIF</div>
+                <div class="kpi-value" style="color:#6e916e">94.2%</div>
+                <div class="kpi-trend up">↑ +2.1pp vs Q4</div>
+                <div class="kpi-bar"><div class="kpi-fill" style="width:94.2%; background:#6e916e"></div></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Coste/km</div>
+                <div class="kpi-value" style="color:#4a5adc">€1.23</div>
+                <div class="kpi-trend up">↓ -8% vs año anterior</div>
+                <div class="kpi-bar"><div class="kpi-fill" style="width:72%; background:#4a5adc"></div></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Fill Rate</div>
+                <div class="kpi-value" style="color:#c89633">98.3%</div>
+                <div class="kpi-trend up">↑ +7.3pp tras IA</div>
+                <div class="kpi-bar"><div class="kpi-fill" style="width:98.3%; background:#c89633"></div></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Lead Time</div>
+                <div class="kpi-value" style="color:#9b59b6">1.8d</div>
+                <div class="kpi-trend up">↓ -0.7d vs manual</div>
+                <div class="kpi-bar"><div class="kpi-fill" style="width:64%; background:#9b59b6"></div></div>
+            </div>
+        </div>
+        <div class="card alert-card">
+            <div class="alert-header">🔔 Alertas Inteligentes (últimas 24h)</div>
+            <div class="alert-row"><span class="alert-dot yellow"></span> Pico demanda previsto Zona Norte (+22%) — Stock reasignado automáticamente</div>
+            <div class="alert-row"><span class="alert-dot green"></span> Ruta MAD-BCN optimizada: -18km por desvío M-40 — Ahorro €34</div>
+            <div class="alert-row"><span class="alert-dot red"></span> Proveedor #47 retraso 2h — Alternativa activada: Proveedor #12</div>
+            <div class="alert-row"><span class="alert-dot green"></span> OTIF mensual superó objetivo (94.2% vs 92% target)</div>
+        </div>
+    </div>
+
+    <!-- CTA FOOTER -->
+    <div class="cta-footer">
+        <div class="cta-content">
+            <h2>¿Y si tus datos contaran esta historia?</h2>
+            <p>Esto es una demo con datos simulados.<br>Lo tuyo puede ser real.</p>
+            <a href="https://www.linkedin.com/in/sergiomontalvillo" target="_blank" class="btn-cta">Conecta con Sergio Montalvillo →</a>
+        </div>
+        <p class="disclaimer">Demo · RetailCo es una empresa ficticia · Datos simulados con fines ilustrativos<br>Sergio Montalvillo · Head of Transport & Logistics · <em>"La logística del mañana, se diseña hoy"</em></p>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
